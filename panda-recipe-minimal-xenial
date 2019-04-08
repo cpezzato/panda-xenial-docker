@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: osrf/ros:kinetic-desktop-full-xenial
+
+%help
+Singularity container with ROS Kinetic and Gazebo7 for the dynamic simulation of the Franka Emika Panda robot arm
+
+%post
+    echo "I am busy installing software and other dependancies for the container!"
+	chmod 755 /root
+	apt-get update
+	# Additional packages mainly for ros_control and Gazebo
+	apt-get install -y usbutils wget ros-kinetic-joint-state-controller ros-kinetic-controller-manager* ros-kinetic-joint-trajectory-controller ros-kinetic-effort-controllers ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-rviz* libboost-filesystem-dev libjsoncpp-dev
+	rosdep update
+
+
+	
